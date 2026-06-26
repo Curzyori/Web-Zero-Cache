@@ -111,6 +111,8 @@ export default async function HomePage({
   const footerProps = {
     copyright: "© 2026 Curzyori",
     githubRepo: navProps.githubRepo,
+    licenseName: "Apache-2.0",
+    licenseUrl: "https://github.com/Curzyori/zero-cache/blob/main/LICENSE",
   };
 
   return (
