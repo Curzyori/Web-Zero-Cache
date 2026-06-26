@@ -131,7 +131,7 @@ cd zero-cache
               <li><strong>Build System:</strong> Gradle (Gradle Kotlin DSL)</li>
               <li><strong>Design:</strong> Material Design 3</li>
               <li><strong>UX Direction:</strong> Clean, functional utility aesthetic</li>
-              <li><strong>License:</strong> GPL-3.0</li>
+              <li><strong>License:</strong> Apache-2.0</li>
             </ul>
           </section>
 
@@ -177,14 +177,19 @@ cd zero-cache
               License
             </h2>
             <p className="text-foreground/70">
-              This project is released under the <strong>GNU General Public License v3.0</strong>.
-              See the LICENSE file for full text.
+              This project is released under the <strong>Apache License 2.0</strong>.
+              See the <a href="https://github.com/Curzyori/zero-cache/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">LICENSE</a> file for full text.
             </p>
           </section>
         </div>
       </main>
 
-      <Footer copyright="© 2026 Curzyori" githubRepo="Curzyori/zero-cache" />
+      <Footer
+        copyright="© 2026 Curzyori"
+        githubRepo="Curzyori/zero-cache"
+        licenseName="Apache-2.0"
+        licenseUrl="https://github.com/Curzyori/zero-cache/blob/main/LICENSE"
+      />
     </>
   );
 }
