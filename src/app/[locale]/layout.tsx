@@ -21,6 +21,7 @@ export async function generateMetadata({
   const isIndo = locale === "id";
 
   return {
+    metadataBase: new URL("https://zero-cache.curzy.dev"),
     title: "ZeroCache",
     description: isIndo
       ? "Pembersih cache Android sekali ketuk dengan mode Root & Tanpa Root"

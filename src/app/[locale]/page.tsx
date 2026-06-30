@@ -146,7 +146,7 @@ export default async function HomePage({
       <Preview {...previewProps} />
       <DownloadSection {...downloadProps} />
       </main>
-      <Footer copyright="© 2026 Curzyori" githubRepo="Curzyori/zero-cache" licenseName="Apache-2.0" licenseUrl="https://github.com/Curzyori/zero-cache/blob/main/LICENSE" />
+      <Footer {...footerProps} />
     </>
   );
 }
