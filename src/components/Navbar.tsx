@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 interface NavbarProps {
   locale: string;
   logo: string;
+  name: string;
   githubRepo: string;
   stars?: number;
   brandColor: "blue" | "purple";
@@ -26,7 +27,7 @@ const brandStyles = {
   },
 };
 
-export function Navbar({ locale, logo, githubRepo, stars, brandColor }: NavbarProps) {
+export function Navbar({ locale, logo, name, githubRepo, stars, brandColor }: NavbarProps) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const styles = brandStyles[brandColor];
@@ -44,12 +45,12 @@ export function Navbar({ locale, logo, githubRepo, stars, brandColor }: NavbarPr
   const isActive = (href: string) => pathname === href;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-foreground/10 bg-background/80 backdrop-blur-md">
+    <nav aria-label="Main navigation" className="fixed top-0 left-0 right-0 z-50 border-b border-foreground/10 bg-background/80 backdrop-blur-md">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href={`/${locale}`} className="flex items-center gap-3">
-            <img src={logo} alt="Logo" className="h-8 w-8 object-contain" />
+            <img src={logo} alt={`${name} Logo`} className="h-8 w-8 object-contain" />
           </Link>
 
           {/* Desktop Nav */}
@@ -96,6 +97,9 @@ export function Navbar({ locale, logo, githubRepo, stars, brandColor }: NavbarPr
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-menu"
+              aria-label={mobileMenuOpen ? (locale === "id" ? "Tutup menu" : "Close menu") : (locale === "id" ? "Buka menu" : "Open menu")}
               className="md:hidden text-foreground/60 hover:text-foreground"
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -104,8 +108,7 @@ export function Navbar({ locale, logo, githubRepo, stars, brandColor }: NavbarPr
         </div>
 
         {/* Mobile Nav */}
-        {mobileMenuOpen && (
-          <div className="md:hidden border-t border-foreground/10 py-4">
+        <div id="mobile-menu" aria-hidden={!mobileMenuOpen} className="md:hidden border-t border-foreground/10 py-4">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -120,7 +123,6 @@ export function Navbar({ locale, logo, githubRepo, stars, brandColor }: NavbarPr
               </Link>
             ))}
           </div>
-        )}
       </div>
     </nav>
   );

@@ -27,6 +27,7 @@ export default async function DocsPage({
   const navProps = {
     locale,
     logo: "/logo.png",
+    name: "ZeroCache",
     githubRepo: "Curzyori/zero-cache",
     stars,
     brandColor: "blue" as const,
@@ -34,9 +35,16 @@ export default async function DocsPage({
 
   return (
     <>
+      {/* Skip to main content */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground focus:font-medium focus:shadow-lg"
+      >
+        {isIndo ? "Lewati ke konten utama" : "Skip to main content"}
+      </a>
+
       <Navbar {...navProps} />
-      
-      <main className="flex-1 pt-24 pb-16 px-4">
+      <main id="main-content" className="flex-1 pt-24 pb-16 px-4">
         <div className="mx-auto max-w-4xl">
           <h1 className="text-4xl font-bold mb-8">
             {isIndo ? "Dokumentasi ZeroCache" : "ZeroCache Documentation"}
@@ -55,7 +63,7 @@ export default async function DocsPage({
             </p>
             <p className="text-foreground/70 leading-relaxed mt-4">
               {isIndo
-                ? "Aplikasi ini menggunakan AccessibilityService untuk mengetuk otomatis tombol "Hapus Cache" untuk setiap aplikasi dalam mode Tanpa Root, sedangkan mode Root memberikan pembersihan lebih cepat melalui perintah sistem langsung."
+                ? "Aplikasi ini menggunakan AccessibilityService untuk mengetuk otomatis tombol Hapus Cache untuk setiap aplikasi dalam mode Tanpa Root, sedangkan mode Root memberikan pembersihan lebih cepat melalui perintah sistem langsung."
                 : "The app uses AccessibilityService to automatically tap the \"Clear Cache\" button for each app in No-Root mode, while Root mode provides faster clearing through direct system commands."}
             </p>
           </section>
@@ -168,7 +176,7 @@ cd zero-cache
             </h2>
             <p className="text-foreground/70 leading-relaxed">
               {isIndo
-                ? "ZeroCache memindai semua aplikasi yang terinstal di perangkat Anda dan menampilkan ukuran cache mereka. Saat Anda mengetuk "Hapus Semua", aplikasi menggunakan AccessibilityService untuk meniru ketukan pada tombol sistem "Hapus Cache" (mode Tanpa Root) atau menjalankan perintah pm clear langsung (mode Root)."
+                ? "ZeroCache memindai semua aplikasi yang terinstal di perangkat Anda dan menampilkan ukuran cache mereka. Saat Anda mengetuk Hapus Semua, aplikasi menggunakan AccessibilityService untuk meniru ketukan pada tombol sistem Hapus Cache (mode Tanpa Root) atau menjalankan perintah pm clear langsung (mode Root)."
                 : "ZeroCache scans all installed apps on your device and displays their cache sizes. When you tap \"Clear All\", the app either uses AccessibilityService to simulate taps on the system \"Clear Cache\" button (No-Root mode) or executes pm clear commands directly (Root mode)."}
             </p>
             <p className="text-foreground/70 leading-relaxed mt-4">

@@ -1,5 +1,4 @@
-"use client";
-
+import Image from "next/image";
 import { Download } from "lucide-react";
 import { GitHubIcon } from "@/components/ui/Icons";
 import { Button } from "@/components/ui/Button";
@@ -43,10 +42,13 @@ export function Hero({
       <div className="text-center max-w-3xl mx-auto">
         {/* Logo */}
         <div className="mb-6 flex justify-center">
-          <img
+          <Image
             src={logo}
             alt={`${name} Logo`}
+            width={128}
+            height={128}
             className="h-32 w-32 object-contain"
+            priority
           />
         </div>
 

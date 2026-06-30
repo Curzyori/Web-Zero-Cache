@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface PreviewImage {
   src: string;
   alt: string;
@@ -20,15 +22,20 @@ export function Preview({ images }: PreviewProps) {
           {images.map((image, index) => (
             <div key={index} className="text-center">
               {isGifs ? (
-                <img
+                <Image
                   src={image.src}
                   alt={image.alt}
+                  width={600}
+                  height={400}
                   className="mx-auto rounded-xl shadow-lg max-w-full h-auto"
+                  unoptimized={image.src.endsWith(".gif")}
                 />
               ) : (
-                <img
+                <Image
                   src={image.src}
                   alt={image.alt}
+                  width={600}
+                  height={400}
                   className="mx-auto rounded-xl shadow-lg max-w-full h-auto"
                   loading="lazy"
                 />

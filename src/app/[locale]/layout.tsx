@@ -12,18 +12,46 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "ZeroCache",
-  description: "One-tap Android cache cleaner with Root & No-Root modes",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isIndo = locale === "id";
 
-export default function LocaleLayout({
+  return {
+    title: "ZeroCache",
+    description: isIndo
+      ? "Pembersih cache Android sekali ketuk dengan mode Root & Tanpa Root"
+      : "One-tap Android cache cleaner with Root & No-Root modes",
+    other: {
+      "og:title": "ZeroCache",
+      "og:description": isIndo
+        ? "Pembersih cache Android sekali ketuk dengan mode Root & Tanpa Root"
+        : "One-tap Android cache cleaner with Root & No-Root modes",
+      "og:image": "/og-image.png",
+      "og:type": "website",
+      "twitter:card": "summary_large_image",
+      "twitter:title": "ZeroCache",
+      "twitter:description": isIndo
+        ? "Pembersih cache Android sekali ketuk dengan mode Root & Tanpa Root"
+        : "One-tap Android cache cleaner with Root & No-Root modes",
+      "twitter:image": "/og-image.png",
+    },
+  };
+}
+
+export default async function LocaleLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang={locale} className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="min-h-screen flex flex-col antialiased">
         {children}
       </body>
