@@ -39,7 +39,7 @@ export default async function HomePage({
   const heroProps = {
     logo: "/logo.png",
     name: "ZeroCache",
-    tagline: "One-tap Android cache cleaner with Root & No-Root modes",
+    tagline: locale === "id" ? "Pembersih cache Android sekali ketuk dengan mode Root & Tanpa Root" : "One-tap Android cache cleaner with Root & No-Root modes",
     brandColor: "blue" as const,
     ctaPrimary: locale === "id" ? "Unduh APK" : "Download APK",
     ctaSecondary: locale === "id" ? "Lihat di GitHub" : "View on GitHub",
@@ -51,33 +51,45 @@ export default async function HomePage({
     title: locale === "id" ? "Fitur" : "Features",
     features: [
       {
-        title: "One-Tap Clear All",
-        description: "Single button to clear all detected app cache instantly",
+        title: locale === "id" ? "Satu Ketukan Hapus Semua" : "One-Tap Clear All",
+        description: locale === "id"
+          ? "Satu tombol untuk menghapus semua cache aplikasi yang terdeteksi secara instan."
+          : "Single button to clear all detected app cache instantly.",
         icon: Trash2,
       },
       {
-        title: "No-Root Mode",
-        description: "Uses AccessibilityService to auto-tap Clear Cache button",
+        title: locale === "id" ? "Mode Tanpa Root" : "No-Root Mode",
+        description: locale === "id"
+          ? "Menggunakan AccessibilityService untuk mengetuk otomatis tombol Hapus Cache."
+          : "Uses AccessibilityService to auto-tap Clear Cache button.",
         icon: Accessibility,
       },
       {
-        title: "Root Mode",
-        description: "Direct pm clear commands for faster clearing on rooted devices",
+        title: locale === "id" ? "Mode Root" : "Root Mode",
+        description: locale === "id"
+          ? "Perintah pm clear langsung untuk pembersihan lebih cepat di perangkat yang di-root."
+          : "Direct pm clear commands for faster clearing on rooted devices.",
         icon: Smartphone,
       },
       {
-        title: "Live Progress",
-        description: "Animated 3-dot indicator during clearing process",
+        title: locale === "id" ? "Progres Langsung" : "Live Progress",
+        description: locale === "id"
+          ? "Indikator animasi 3 titik selama proses pembersihan."
+          : "Animated 3-dot indicator during clearing process.",
         icon: Zap,
       },
       {
-        title: "Dark Mode",
-        description: "System-wide dark and light theme support",
+        title: locale === "id" ? "Mode Gelap" : "Dark Mode",
+        description: locale === "id"
+          ? "Dukungan tema gelap dan terang secara sistem."
+          : "System-wide dark and light theme support.",
         icon: Palette,
       },
       {
-        title: "Multi-Language",
-        description: "Toggle between English and Bahasa Indonesia",
+        title: locale === "id" ? "Multi-Bahasa" : "Multi-Language",
+        description: locale === "id"
+          ? "Beralih antara Bahasa Inggris dan Bahasa Indonesia."
+          : "Toggle between English and Bahasa Indonesia.",
         icon: Languages,
       },
     ],
@@ -95,7 +107,7 @@ export default async function HomePage({
     title: locale === "id" ? "Unduh" : "Download",
     latestVersion: "v1.0.0",
     versionLabel: locale === "id" ? "Versi Terbaru" : "Latest Version",
-    files: [{ name: "Zero-Cache-v1.0.0.apk", url: "https://github.com/Curzyori/zero-cache/releases/tag/V1.0.0" }],
+    files: [{ name: "Zero-Cache-v1.0.0.apk", url: "https://github.com/Curzyori/zero-cache/releases/download/V1.0.0/Zero-Cache-v1.0.0.apk" }],
     sourceCodeLabel: "Source Code",
     sourceUrl: "https://github.com/Curzyori/zero-cache",
     githubRepo: navProps.githubRepo,
